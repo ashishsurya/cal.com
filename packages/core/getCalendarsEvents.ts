@@ -40,6 +40,7 @@ const getCalendarsEvents = async (
     const selectedCalendarIds = passedSelectedCalendars.map((sc) => sc.externalId);
     /** If we don't then we actually fetch external calendars (which can be very slow) */
     performance.mark("eventBusyDatesStart");
+
     const eventBusyDates = await c.getAvailability(dateFrom, dateTo, passedSelectedCalendars);
     performance.mark("eventBusyDatesEnd");
     performance.measure(
